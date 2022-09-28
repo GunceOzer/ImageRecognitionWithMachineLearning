@@ -1,24 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImageRecognitionWithMachineLearning" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMO-QQ-fVN">
+                                <rect key="frame" x="19" y="75" width="375" height="550"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZAx-IR-3HM">
+                                <rect key="frame" x="50" y="660" width="313" height="81"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="81" id="bOB-sH-HhE"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebb-oK-zUk">
+                                <rect key="frame" x="149" y="773" width="116" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="58" id="fqt-uE-3mi"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="chooseAnImageClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqY-ZS-hp3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZAx-IR-3HM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0Fx-bT-MMw"/>
+                            <constraint firstItem="MMO-QQ-fVN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="1kO-ai-B1E"/>
+                            <constraint firstItem="MMO-QQ-fVN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="GHy-6k-fIp"/>
+                            <constraint firstItem="MMO-QQ-fVN" firstAttribute="centerX" secondItem="ZAx-IR-3HM" secondAttribute="centerX" id="NUV-DU-QlZ"/>
+                            <constraint firstItem="MMO-QQ-fVN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bKC-0g-Gpb"/>
+                            <constraint firstItem="ebb-oK-zUk" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="149" id="dKA-gz-9B3"/>
+                            <constraint firstItem="ebb-oK-zUk" firstAttribute="top" secondItem="ZAx-IR-3HM" secondAttribute="bottom" constant="32" id="eRy-WE-c2e"/>
+                            <constraint firstItem="ZAx-IR-3HM" firstAttribute="top" secondItem="MMO-QQ-fVN" secondAttribute="bottom" constant="35" id="icS-jC-JtW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ebb-oK-zUk" secondAttribute="bottom" constant="31" id="sao-Ie-29V"/>
+                            <constraint firstItem="ZAx-IR-3HM" firstAttribute="centerX" secondItem="ebb-oK-zUk" secondAttribute="centerX" id="u3H-nl-xWE"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="MMO-QQ-fVN" id="t1X-Rw-tpG"/>
+                        <outlet property="resultLabel" destination="ZAx-IR-3HM" id="sEB-gX-Lhy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="65.625"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
